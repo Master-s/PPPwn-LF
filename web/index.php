@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPPwn-Luckfox Dashboard</title>
+    <title>PPPwn-Luckfox Dashboard لوحة تحكم لوكفوكس</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -62,13 +62,14 @@
 <body>
 
 <div class="container">
-    <h1>PPPwn-Luckfox Dashboard</h1>
+    <h1>PPPwn-Luckfox Dashboard </h1>
+    <h1>لوحة تحكم لوك فوكس</h1>
     <form method="post" action="" style="display:inline;">
-        <button type="submit" name="run_pppwn" class="button">Run PPPwn</button>
-    </form>
-    <a href="config.php" class="button">Config</a>
-    <a href="./900/index.html" class="button">900 Payloads</a>
-    <a href="./1100/index.html" class="button">1100 Payloads</a>
+        <button type="submit" name="run_pppwn" class="button">Run PPPwn<br>تشغيل سكربت</button>
+    </form><br>
+    <a href="config.php" class="button">Config<br>الاعدادات اتصال</a><br>
+    <a href="./900/index.html" class="button">900 Payloads<br>حمولات الاصدار 900</a>
+    <a href="./1100/index.html" class="button">1100 Payloads<br>حمولات الاصدار 1100</a>
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['run_pppwn'])) {
         // Read config.json to get the installation directory

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // Define the file where the configuration will be stored
 $config_file = '/etc/pppwn/config.json';
 
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $config['REAL_SLEEP'] = isset($_POST['REAL_SLEEP']);
         $config['AUTO_START'] = isset($_POST['AUTO_START']);
         save_config($config_file, $config);
-        $message = "Configuration updated successfully.";
+        $message = "Configuration updated successfully.تم تحديث التهيئة بنجاح";
     } else {
         $message = "Error: Please provide all values.";
     }
@@ -136,13 +136,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="container">
     <h1>PPPwn-Luckfox Configuration</h1>
-
+     <h1>PPPwn-Luckfox إعدادات</h1>
     <?php if (isset($message)): ?>
         <div class="message"><?php echo $message; ?></div>
     <?php endif; ?>
 
     <form method="POST">
-        <label for="FW_HEN_VERSION">PS4 Firmware and Goldhen/Hen:</label>
+        <label for="FW_HEN_VERSION">PS4 Firmware and Goldhen/Hen: حدد الاصدار جهاز خاص بك</label>
         <select id="FW_HEN_VERSION" name="FW_HEN_VERSION" required>
             <option value="900_goldhen" <?php if ($config['FW_VERSION'] == '900' && $config['HEN_TYPE'] == 'goldhen') echo 'selected'; ?>>9.00 - Goldhen</option>
             <option value="960_goldhen" <?php if ($config['FW_VERSION'] == '960' && $config['HEN_TYPE'] == 'goldhen') echo 'selected'; ?>>9.60 - Goldhen</option>
@@ -163,36 +163,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <option value="1100_hen" <?php if ($config['FW_VERSION'] == '1100' && $config['HEN_TYPE'] == 'hen') echo 'selected'; ?>>11.00 - Hen</option>
         </select>
 
-        <label for="TIMEOUT">Timeout in seconds:</label>
+        <label for="TIMEOUT">Timeout in seconds:مهلة زمنية بالثواني</label>
         <input type="number" id="TIMEOUT" name="TIMEOUT" value="<?php echo htmlspecialchars($config['TIMEOUT']); ?>" required>
 
-        <label for="WAIT_AFTER_PIN">Wait After Pin in seconds:</label>
+        <label for="WAIT_AFTER_PIN">Wait After Pin in seconds:انتظر بعد التثبيت بالثواني</label>
         <input type="number" id="WAIT_AFTER_PIN" name="WAIT_AFTER_PIN" value="<?php echo htmlspecialchars($config['WAIT_AFTER_PIN']); ?>" required>
 
-        <label for="GROOM_DELAY">Groom Delay:</label>
+        <label for="GROOM_DELAY">Groom Delay:تأخير</label>
         <input type="number" id="GROOM_DELAY" name="GROOM_DELAY" value="<?php echo htmlspecialchars($config['GROOM_DELAY']); ?>" required>
 
-        <label for="BUFFER_SIZE">Buffer Size in bytes:</label>
+        <label for="BUFFER_SIZE">Buffer Size in bytes:حجم المخزن المؤقت بالبايت</label>
         <input type="number" id="BUFFER_SIZE" name="BUFFER_SIZE" value="<?php echo htmlspecialchars($config['BUFFER_SIZE']); ?>" required>
 
         <div class="checkbox-group">
             <input type="checkbox" id="AUTO_RETRY" name="AUTO_RETRY" <?php if ($config['AUTO_RETRY']) echo 'checked'; ?>>
-            <label for="AUTO_RETRY">Auto Retry</label>
+            <label for="AUTO_RETRY">Auto Retry إعادة المحاولة تلقائيًا</label>
         </div>
 
         <div class="checkbox-group">
             <input type="checkbox" id="NO_WAIT_PADI" name="NO_WAIT_PADI" <?php if ($config['NO_WAIT_PADI']) echo 'checked'; ?>>
-            <label for="NO_WAIT_PADI">No Wait PADI</label>
+            <label for="NO_WAIT_PADI">No Wait PADI لا إنتظار</label>
         </div>
 
         <div class="checkbox-group">
             <input type="checkbox" id="REAL_SLEEP" name="REAL_SLEEP" <?php if ($config['REAL_SLEEP']) echo 'checked'; ?>>
-            <label for="REAL_SLEEP">Real Sleep</label>
+            <label for="REAL_SLEEP">Real Sleep سكون</label>
         </div>
 
         <div class="checkbox-group">
             <input type="checkbox" id="AUTO_START" name="AUTO_START" <?php if ($config['AUTO_START']) echo 'checked'; ?>>
-            <label for="AUTO_START">Auto Run on Start-Up</label>
+            <label for="AUTO_START">Auto Run on Start-Up التشغيل التلقائي عند بدء التشغيل</label>
         </div>
         <input type="submit" value="Update Configuration">
     </form>
